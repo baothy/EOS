@@ -9,6 +9,6 @@ ACCOUNT=$1
 CONTRACT=$2
 
 eosiocpp -o ${CONTRACT}.wast ${CONTRACT}.cpp &&
-eosiocpp -g ${contract}.abi ${contract}.hpp &&
+eosiocpp -g ${CONTRACT}.abi ${CONTRACT}.hpp &&
 cleos set contract ${ACCOUNT} ../${CONTRACT}
 
