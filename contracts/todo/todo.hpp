@@ -21,7 +21,8 @@ class todo : public contract
     // @abi action
     void update(const account_name account,
                 const string &content,
-                uint64_t id);
+                uint64_t id,
+                uint64_t isDone);
 
     // @abi action
     void remove(uint64_t id,
@@ -68,9 +69,10 @@ class todo : public contract
         uint64_t id;
         account_name account;
         string content;
+        uint64_t isDone;
 
         uint64_t primary_key() const { return id; }
-        EOSLIB_SERIALIZE(task, (id)(account)(content))
+        EOSLIB_SERIALIZE(task, (id)(account)(content)(isDone))
     };
 
     typedef eosio::multi_index<N(tasks), task> task_table;
